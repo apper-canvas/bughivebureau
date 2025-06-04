@@ -20,6 +20,7 @@ export const HomePageTemplate = ({
   onCloseCreateModal,
   onTicketSelect,
   onCloseTicketDetail,
+  onTicketUpdated,
   onToggleDarkMode,
   onViewChange,
   onTicketStatusUpdate,

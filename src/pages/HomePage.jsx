@@ -124,11 +124,18 @@ onFilterChange={handleFilterChange}
       onCloseCreateModal={() => setShowCreateModal(false)}
       onTicketSelect={setSelectedTicket}
       onCloseTicketDetail={() => setSelectedTicket(null)}
-      onTicketUpdated={(updatedTicket) => {
-        setTickets(prev => prev.map(ticket => 
-          ticket.id === updatedTicket.id ? updatedTicket : ticket
-        ))
-        setSelectedTicket(updatedTicket)
+onTicketUpdated={(updatedTicket, action, ticketId) => {
+        if (action === 'delete') {
+          // Remove ticket from list
+          setTickets(prev => prev.filter(ticket => ticket.id !== ticketId))
+          setSelectedTicket(null)
+        } else if (updatedTicket) {
+          // Update ticket in list
+          setTickets(prev => prev.map(ticket => 
+            ticket.id === updatedTicket.id ? updatedTicket : ticket
+          ))
+          setSelectedTicket(updatedTicket)
+        }
       }}
       onToggleDarkMode={toggleDarkMode}
       onViewChange={setCurrentView}
