@@ -8,6 +8,19 @@ import { Text } from '../atoms/Text'
 import { Badge } from '../molecules/Badge'
 import { Avatar } from '../molecules/Avatar'
 import ApperIcon from '../ApperIcon'
+import { useDroppable } from '@dnd-kit/core'
+
+const DroppableWrapper = ({ children, id, status }) => {
+  const { setNodeRef, isOver } = useDroppable({
+    id,
+  })
+
+  return (
+    <div ref={setNodeRef} className="min-w-80">
+      {React.cloneElement(children, { isOver })}
+    </div>
+  )
+}
 
 const KanbanCard = ({ ticket, getPriorityColor, getStatusColor, onTicketSelect }) => {
   const {
@@ -216,15 +229,20 @@ const handleDragEnd = (event) => {
         >
 <div className="flex gap-6 overflow-x-auto pb-4">
             {statuses.map((status) => (
-              <DroppableColumn
+              <DroppableWrapper
                 key={status.key}
+                id={`column-${status.key}`}
                 status={status.key}
-                title={status.title}
-                tickets={getTicketsByStatus(status.key)}
-                getPriorityColor={getPriorityColor}
-                getStatusColor={getStatusColor}
-                onTicketSelect={onTicketSelect}
-              />
+              >
+                <KanbanColumn
+                  status={status.key}
+                  title={status.title}
+                  tickets={getTicketsByStatus(status.key)}
+                  getPriorityColor={getPriorityColor}
+                  getStatusColor={getStatusColor}
+                  onTicketSelect={onTicketSelect}
+                />
+              </DroppableWrapper>
             ))}
           </div>
           
