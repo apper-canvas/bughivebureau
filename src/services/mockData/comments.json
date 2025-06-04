@@ -1,0 +1,122 @@
+[
+  {
+    "id": "comment-001",
+    "ticketId": "TKT-001",
+    "author": {
+      "id": "user-002",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@company.com",
+      "role": "developer"
+    },
+    "content": "I've reproduced this issue on Safari 15.6. It seems to be related to the form validation library we're using. Will investigate further.",
+    "createdAt": "2024-01-15T11:15:00Z"
+  },
+  {
+    "id": "comment-002",
+    "ticketId": "TKT-001",
+    "author": {
+      "id": "user-004",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "role": "qa"
+    },
+    "content": "Also confirmed on Safari 16.1. The issue doesn't appear on Safari Technology Preview, so it might be version-specific.",
+    "createdAt": "2024-01-15T12:30:00Z"
+  },
+  {
+    "id": "comment-003",
+    "ticketId": "TKT-002",
+    "author": {
+      "id": "user-003",
+      "name": "Alex Rodriguez",
+      "email": "alex.rodriguez@company.com",
+      "role": "developer"
+    },
+    "content": "Working on implementing responsive chart components. Should have a fix ready by end of week.",
+    "createdAt": "2024-01-15T09:45:00Z"
+  },
+  {
+    "id": "comment-004",
+    "ticketId": "TKT-003",
+    "author": {
+      "id": "user-005",
+      "name": "Emily Davis",
+      "email": "emily.davis@company.com",
+      "role": "qa"
+    },
+    "content": "Memory leak fix has been deployed to staging. Testing shows significant improvement in memory usage patterns.",
+    "createdAt": "2024-01-15T14:20:00Z"
+  },
+  {
+    "id": "comment-005",
+    "ticketId": "TKT-005",
+    "author": {
+      "id": "user-003",
+      "name": "Alex Rodriguez",
+      "email": "alex.rodriguez@company.com",
+      "role": "developer"
+    },
+    "content": "Found the root cause - search indexing is not properly handling partial matches. Implementing a new search algorithm.",
+    "createdAt": "2024-01-15T13:10:00Z"
+  },
+  {
+    "id": "comment-006",
+    "ticketId": "TKT-006",
+    "author": {
+      "id": "user-002",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@company.com",
+      "role": "developer"
+    },
+    "content": "Fixed by updating localStorage handling. Dark mode preference now persists correctly across sessions.",
+    "createdAt": "2024-01-14T16:15:00Z"
+  },
+  {
+    "id": "comment-007",
+    "ticketId": "TKT-007",
+    "author": {
+      "id": "user-006",
+      "name": "David Wilson",
+      "email": "david.wilson@company.com",
+      "role": "developer"
+    },
+    "content": "Investigating API performance during peak hours. Initial analysis suggests database connection pooling issues.",
+    "createdAt": "2024-01-15T16:00:00Z"
+  },
+  {
+    "id": "comment-008",
+    "ticketId": "TKT-008",
+    "author": {
+      "id": "user-007",
+      "name": "Lisa Park",
+      "email": "lisa.park@company.com",
+      "role": "developer"
+    },
+    "content": "Email service configuration has been updated. Testing shows notifications are now sending correctly for high priority tickets.",
+    "createdAt": "2024-01-15T14:30:00Z"
+  },
+  {
+    "id": "comment-009",
+    "ticketId": "TKT-009",
+    "author": {
+      "id": "user-008",
+      "name": "Chris Taylor",
+      "email": "chris.taylor@company.com",
+      "role": "developer"
+    },
+    "content": "iOS Safari date handling requires special handling. Implementing a polyfill for consistent behavior across browsers.",
+    "createdAt": "2024-01-15T10:15:00Z"
+  },
+  {
+    "id": "comment-010",
+    "ticketId": "TKT-010",
+    "author": {
+      "id": "user-006",
+      "name": "David Wilson",
+      "email": "david.wilson@company.com",
+      "role": "developer"
+    },
+    "content": "CDN configuration has been fixed. Avatar images are now loading properly with fallback handling.",
+    "createdAt": "2024-01-14T11:00:00Z"
+  }
+]

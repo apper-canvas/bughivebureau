@@ -1,0 +1,292 @@
+[
+  {
+    "id": "TKT-001",
+    "title": "Login form validation not working on Safari",
+    "description": "Users are able to submit the login form with empty fields on Safari browser, but validation works correctly on Chrome and Firefox.",
+    "priority": "critical",
+    "status": "new",
+    "assignee": {
+      "id": "user-002",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-004",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z",
+    "stepsToReproduce": "1. Open Safari browser\n2. Navigate to login page\n3. Click submit without entering credentials",
+    "expectedBehavior": "Form should show validation errors",
+    "actualBehavior": "Form submits and redirects to error page",
+    "attachments": []
+  },
+  {
+    "id": "TKT-002",
+    "title": "Dashboard charts not loading on mobile devices",
+    "description": "The analytics charts on the dashboard fail to render properly on mobile devices with screen width less than 768px.",
+    "priority": "high",
+    "status": "in-progress",
+    "assignee": {
+      "id": "user-003",
+      "name": "Alex Rodriguez",
+      "email": "alex.rodriguez@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-001",
+      "name": "John Smith",
+      "email": "john.smith@company.com",
+      "role": "manager"
+    },
+    "createdAt": "2024-01-14T14:20:00Z",
+    "updatedAt": "2024-01-15T09:15:00Z",
+    "stepsToReproduce": "1. Login to the application\n2. Navigate to dashboard\n3. Resize browser to mobile viewport or use mobile device",
+    "expectedBehavior": "Charts should resize and display properly",
+    "actualBehavior": "Charts appear blank or distorted",
+    "attachments": []
+  },
+  {
+    "id": "TKT-003",
+    "title": "Memory leak in user profile component",
+    "description": "The user profile component appears to have a memory leak that causes browser performance degradation after extended use.",
+    "priority": "high",
+    "status": "testing",
+    "assignee": {
+      "id": "user-002",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-005",
+      "name": "Emily Davis",
+      "email": "emily.davis@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-13T16:45:00Z",
+    "updatedAt": "2024-01-15T11:30:00Z",
+    "stepsToReproduce": "1. Navigate to user profile page\n2. Edit profile information multiple times\n3. Monitor browser memory usage",
+    "expectedBehavior": "Memory usage should remain stable",
+    "actualBehavior": "Memory usage increases continuously",
+    "attachments": []
+  },
+  {
+    "id": "TKT-004",
+    "title": "File upload progress bar not updating",
+    "description": "When uploading large files, the progress bar remains at 0% throughout the upload process, even though the upload completes successfully.",
+    "priority": "medium",
+    "status": "new",
+    "assignee": null,
+    "reporter": {
+      "id": "user-004",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-15T08:15:00Z",
+    "updatedAt": "2024-01-15T08:15:00Z",
+    "stepsToReproduce": "1. Go to file upload section\n2. Select a file larger than 50MB\n3. Click upload and observe progress bar",
+    "expectedBehavior": "Progress bar should show upload percentage",
+    "actualBehavior": "Progress bar stays at 0% but upload succeeds",
+    "attachments": []
+  },
+  {
+    "id": "TKT-005",
+    "title": "Search functionality returns incorrect results",
+    "description": "The global search feature returns results that don't match the search query, particularly when searching for partial words or phrases.",
+    "priority": "critical",
+    "status": "in-progress",
+    "assignee": {
+      "id": "user-003",
+      "name": "Alex Rodriguez",
+      "email": "alex.rodriguez@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-001",
+      "name": "John Smith",
+      "email": "john.smith@company.com",
+      "role": "manager"
+    },
+    "createdAt": "2024-01-12T13:20:00Z",
+    "updatedAt": "2024-01-15T10:45:00Z",
+    "stepsToReproduce": "1. Use the global search bar\n2. Enter partial word like 'proj'\n3. Review search results",
+    "expectedBehavior": "Should return items containing 'project', 'projection', etc.",
+    "actualBehavior": "Returns unrelated items or no results",
+    "attachments": []
+  },
+  {
+    "id": "TKT-006",
+    "title": "Dark mode toggle not persisting across sessions",
+    "description": "When users enable dark mode and then log out and back in, the application reverts to light mode instead of remembering the preference.",
+    "priority": "medium",
+    "status": "resolved",
+    "assignee": {
+      "id": "user-002",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-005",
+      "name": "Emily Davis",
+      "email": "emily.davis@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-10T11:30:00Z",
+    "updatedAt": "2024-01-14T16:20:00Z",
+    "stepsToReproduce": "1. Enable dark mode\n2. Log out of the application\n3. Log back in",
+    "expectedBehavior": "Dark mode should remain enabled",
+    "actualBehavior": "Application loads in light mode",
+    "attachments": []
+  },
+  {
+    "id": "TKT-007",
+    "title": "API timeout errors during peak hours",
+    "description": "Users experience frequent API timeout errors between 2-4 PM EST, particularly when loading the main dashboard and user data.",
+    "priority": "high",
+    "status": "new",
+    "assignee": {
+      "id": "user-006",
+      "name": "David Wilson",
+      "email": "david.wilson@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-004",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-15T15:45:00Z",
+    "updatedAt": "2024-01-15T15:45:00Z",
+    "stepsToReproduce": "1. Login during peak hours (2-4 PM EST)\n2. Navigate to dashboard\n3. Observe loading times and error messages",
+    "expectedBehavior": "Dashboard should load within 3 seconds",
+    "actualBehavior": "Frequent timeout errors and 10+ second load times",
+    "attachments": []
+  },
+  {
+    "id": "TKT-008",
+    "title": "Email notifications not sending for high priority tickets",
+    "description": "Email notifications are not being sent to assigned developers when high or critical priority tickets are created or updated.",
+    "priority": "critical",
+    "status": "testing",
+    "assignee": {
+      "id": "user-007",
+      "name": "Lisa Park",
+      "email": "lisa.park@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-001",
+      "name": "John Smith",
+      "email": "john.smith@company.com",
+      "role": "manager"
+    },
+    "createdAt": "2024-01-14T09:30:00Z",
+    "updatedAt": "2024-01-15T14:10:00Z",
+    "stepsToReproduce": "1. Create a high priority ticket\n2. Assign to a developer\n3. Check if email notification is sent",
+    "expectedBehavior": "Developer should receive email notification",
+    "actualBehavior": "No email notification is sent",
+    "attachments": []
+  },
+  {
+    "id": "TKT-009",
+    "title": "Date picker shows incorrect month on iOS Safari",
+    "description": "The date picker component displays the wrong month when opened on iOS Safari browser, showing the previous month instead of the current one.",
+    "priority": "medium",
+    "status": "in-progress",
+    "assignee": {
+      "id": "user-008",
+      "name": "Chris Taylor",
+      "email": "chris.taylor@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-005",
+      "name": "Emily Davis",
+      "email": "emily.davis@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-13T12:15:00Z",
+    "updatedAt": "2024-01-15T09:30:00Z",
+    "stepsToReproduce": "1. Open application on iOS Safari\n2. Navigate to any form with date picker\n3. Click on date field to open picker",
+    "expectedBehavior": "Should show current month",
+    "actualBehavior": "Shows previous month",
+    "attachments": []
+  },
+  {
+    "id": "TKT-010",
+    "title": "User avatar images not loading from CDN",
+    "description": "Profile avatar images are failing to load from the CDN, showing broken image placeholders throughout the application.",
+    "priority": "low",
+    "status": "resolved",
+    "assignee": {
+      "id": "user-006",
+      "name": "David Wilson",
+      "email": "david.wilson@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-004",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-11T14:20:00Z",
+    "updatedAt": "2024-01-14T11:15:00Z",
+    "stepsToReproduce": "1. Login to application\n2. Navigate to any page showing user avatars\n3. Observe image loading behavior",
+    "expectedBehavior": "Avatar images should load properly",
+    "actualBehavior": "Broken image placeholders appear",
+    "attachments": []
+  },
+  {
+    "id": "TKT-011",
+    "title": "Pagination controls missing on ticket list page",
+    "description": "The ticket list page shows all tickets at once without pagination controls, causing performance issues when there are many tickets.",
+    "priority": "medium",
+    "status": "new",
+    "assignee": null,
+    "reporter": {
+      "id": "user-001",
+      "name": "John Smith",
+      "email": "john.smith@company.com",
+      "role": "manager"
+    },
+    "createdAt": "2024-01-15T16:20:00Z",
+    "updatedAt": "2024-01-15T16:20:00Z",
+    "stepsToReproduce": "1. Navigate to ticket list page\n2. Observe page performance and scroll behavior",
+    "expectedBehavior": "Should show paginated results with navigation controls",
+    "actualBehavior": "All tickets load at once, causing slow performance",
+    "attachments": []
+  },
+  {
+    "id": "TKT-012",
+    "title": "Keyboard navigation broken in ticket filters",
+    "description": "Users cannot navigate through the ticket filter dropdown menus using keyboard arrows and tab keys, making the interface inaccessible.",
+    "priority": "high",
+    "status": "closed",
+    "assignee": {
+      "id": "user-007",
+      "name": "Lisa Park",
+      "email": "lisa.park@company.com",
+      "role": "developer"
+    },
+    "reporter": {
+      "id": "user-005",
+      "name": "Emily Davis",
+      "email": "emily.davis@company.com",
+      "role": "qa"
+    },
+    "createdAt": "2024-01-09T10:45:00Z",
+    "updatedAt": "2024-01-13T15:30:00Z",
+    "stepsToReproduce": "1. Navigate to ticket list page\n2. Try to use tab/arrow keys to navigate filters\n3. Attempt to select options with Enter key",
+    "expectedBehavior": "Should be fully keyboard navigable",
+    "actualBehavior": "Keyboard navigation doesn't work",
+    "attachments": []
+  }
+]
