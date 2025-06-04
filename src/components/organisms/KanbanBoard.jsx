@@ -163,7 +163,7 @@ export const KanbanBoard = ({
     setOverId(over?.id || null)
   }
 
-  const handleDragEnd = (event) => {
+const handleDragEnd = (event) => {
     const { active, over } = event
     
     if (!over) {
@@ -173,7 +173,8 @@ export const KanbanBoard = ({
     }
 
     const activeTicket = tickets.find(t => t.id === active.id)
-    const overColumn = statuses.find(s => over.id.includes(s.key))
+    const overColumnId = over.id.replace('column-', '')
+    const overColumn = statuses.find(s => s.key === overColumnId)
     
     if (activeTicket && overColumn && activeTicket.status !== overColumn.key) {
       onTicketStatusUpdate(activeTicket.id, overColumn.key)
