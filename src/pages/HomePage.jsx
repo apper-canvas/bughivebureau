@@ -7,9 +7,10 @@ export default function HomePage() {
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark' || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches));
+const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark' || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches));
   const [selectedTicket, setSelectedTicket] = useState(null)
   const [showCreateModal, setShowCreateModal] = useState(false)
+  const [currentView, setCurrentView] = useState('list')
   const [filters, setFilters] = useState({
     priority: '',
     status: '',
@@ -87,13 +88,24 @@ export default function HomePage() {
       case 'closed': return 'bg-gray-100 text-gray-600'
       default: return 'bg-gray-100 text-gray-800'
     }
+}
+
+  const handleTicketStatusUpdate = async (ticketId, newStatus) => {
+    try {
+      const updatedTicket = await ticketService.update(ticketId, { status: newStatus })
+      setTickets(prev => prev.map(ticket => 
+        ticket.id === ticketId ? updatedTicket : ticket
+      ))
+    } catch (err) {
+      setError(err.message)
+    }
   }
 
   if (error) {
     return <ErrorDisplay message={error} />
   }
 
-  return (
+return (
     <HomePageTemplate
       tickets={filteredTickets}
       loading={loading}
@@ -102,6 +114,7 @@ export default function HomePage() {
       darkMode={darkMode}
       showCreateModal={showCreateModal}
       selectedTicket={selectedTicket}
+      currentView={currentView}
       onFilterChange={handleFilterChange}
       onNewTicketClick={() => setShowCreateModal(true)}
       onTicketCreated={(newTicket) => {
@@ -112,6 +125,8 @@ export default function HomePage() {
       onTicketSelect={setSelectedTicket}
       onCloseTicketDetail={() => setSelectedTicket(null)}
       onToggleDarkMode={toggleDarkMode}
+      onViewChange={setCurrentView}
+      onTicketStatusUpdate={handleTicketStatusUpdate}
       getPriorityColor={getPriorityColor}
       getStatusColor={getStatusColor}
     />

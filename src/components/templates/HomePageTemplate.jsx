@@ -4,7 +4,7 @@ import { FilterSection } from '../organisms/FilterSection'
 import { TicketList } from '../organisms/TicketList'
 import { CreateTicketForm } from '../organisms/CreateTicketForm'
 import { TicketDetailModal } from '../organisms/TicketDetailModal'
-
+import { KanbanBoard } from '../organisms/KanbanBoard'
 export const HomePageTemplate = ({
   tickets,
   loading,
@@ -12,7 +12,9 @@ export const HomePageTemplate = ({
   filters,
   darkMode,
   showCreateModal,
+showCreateModal,
   selectedTicket,
+  currentView,
   onFilterChange,
   onNewTicketClick,
   onTicketCreated,
@@ -20,6 +22,8 @@ export const HomePageTemplate = ({
   onTicketSelect,
   onCloseTicketDetail,
   onToggleDarkMode,
+  onViewChange,
+  onTicketStatusUpdate,
   getPriorityColor,
   getStatusColor,
 }) => {
@@ -31,22 +35,35 @@ export const HomePageTemplate = ({
         onSearchChange={(value) => onFilterChange('search', value)}
         darkMode={darkMode}
         onToggleDarkMode={onToggleDarkMode}
-      />
+/>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <FilterSection
           filters={filters}
+          currentView={currentView}
           onFilterChange={onFilterChange}
           onNewTicketClick={onNewTicketClick}
+          onViewChange={onViewChange}
         />
 
-        <TicketList
-          tickets={tickets}
-          loading={loading}
-          getPriorityColor={getPriorityColor}
-          getStatusColor={getStatusColor}
-          onTicketSelect={onTicketSelect}
-        />
+        {currentView === 'list' ? (
+          <TicketList
+            tickets={tickets}
+            loading={loading}
+            getPriorityColor={getPriorityColor}
+            getStatusColor={getStatusColor}
+            onTicketSelect={onTicketSelect}
+          />
+        ) : (
+          <KanbanBoard
+            tickets={tickets}
+            loading={loading}
+            getPriorityColor={getPriorityColor}
+            getStatusColor={getStatusColor}
+            onTicketSelect={onTicketSelect}
+            onTicketStatusUpdate={onTicketStatusUpdate}
+          />
+        )}
       </div>
 
       <CreateTicketForm
