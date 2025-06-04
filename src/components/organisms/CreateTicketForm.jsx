@@ -313,9 +313,8 @@ export const CreateTicketForm = ({ isOpen, onClose, onTicketCreated }) => {
                   )}
                 </AnimatePresence>
               </div>
-
-              {/* Footer */}
-              <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-750">
+{/* Footer */}
+              <div className="flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-750">
                 <div className="flex justify-between">
                   <div>
                     {currentStep > 1 && (
