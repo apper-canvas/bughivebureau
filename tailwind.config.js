@@ -4,18 +4,33 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
+theme: {
     extend: {
       colors: {
+        border: 'hsl(214.3 31.8% 91.4%)',
+        input: 'hsl(214.3 31.8% 91.4%)',
+        ring: 'hsl(222.2 84% 4.9%)',
+        background: 'hsl(0 0% 100%)',
+        foreground: 'hsl(222.2 84% 4.9%)',
         primary: {
           DEFAULT: '#6366F1',
           light: '#818CF8',
-          dark: '#4F46E5'
+          dark: '#4F46E5',
+          foreground: 'hsl(210 40% 98%)'
         },
         secondary: {
           DEFAULT: '#10B981',
           light: '#34D399',
-          dark: '#059669'
+          dark: '#059669',
+          foreground: 'hsl(222.2 84% 4.9%)'
+        },
+        destructive: {
+          DEFAULT: 'hsl(0 84.2% 60.2%)',
+          foreground: 'hsl(210 40% 98%)'
+        },
+        muted: {
+          DEFAULT: 'hsl(210 40% 96%)',
+          foreground: 'hsl(215.4 16.3% 46.9%)'
         },
         accent: '#F59E0B',
         critical: '#EF4444',
@@ -30,6 +45,14 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a'
+        },
+        popover: {
+          DEFAULT: 'hsl(0 0% 100%)',
+          foreground: 'hsl(222.2 84% 4.9%)'
+        },
+        card: {
+          DEFAULT: 'hsl(0 0% 100%)',
+          foreground: 'hsl(222.2 84% 4.9%)'
         }
       },
       fontFamily: {
@@ -43,6 +66,9 @@ export default {
         'neu-dark': '5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.05)'
       },
       borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
         'xl': '0.75rem',
         '2xl': '1rem'
       }
