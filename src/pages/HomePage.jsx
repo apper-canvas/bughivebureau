@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { toast } from 'react-hot-toast'
+import { toast } from 'react-toastify'
 import { ticketService } from '../services'
 import { HomePageTemplate } from '../components/templates/HomePageTemplate'
 import { ErrorDisplay } from '../components/organisms/ErrorDisplay'
