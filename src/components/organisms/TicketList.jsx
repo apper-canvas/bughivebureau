@@ -40,7 +40,8 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2 }}
-                className="ticket-list-item p-8 group"
+                className="ticket-list-item p-8 group cursor-pointer"
+                onClick={() => onTicketSelect(ticket)}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1 min-w-0 space-y-4">
@@ -65,20 +66,11 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-6 ml-8">
-                    {ticket.assignee && (
-                      <div className="flex items-center space-x-3">
-                        <Avatar name={ticket.assignee.name} showIcon={false} showName={true} className="w-8 h-8" />
-                      </div>
-                    )}
-                    <button 
-                      onClick={() => onTicketSelect(ticket)}
-                      className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 hover:bg-blue-600 transition-all duration-200 ease-in-out transform hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl group/btn"
-                      aria-label="View ticket details"
-                    >
-                      <ApperIcon name="ChevronRight" className="w-5 h-5 text-white transition-transform group-hover/btn:translate-x-0.5" />
-                    </button>
-                  </div>
+                  {ticket.assignee && (
+                    <div className="flex items-center space-x-3 ml-8">
+                      <Avatar name={ticket.assignee.name} showIcon={false} showName={true} className="w-8 h-8" />
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
