@@ -82,13 +82,10 @@
 .status-new {
   @apply bg-gray-100 text-gray-800;
 }
-
 .status-in-progress {
   @apply bg-blue-100 text-blue-800;
 }
 
-.status-testing {
-  @apply bg-purple-100 text-purple-800;
 .status-testing {
   @apply bg-purple-100 text-purple-800;
 }
@@ -100,6 +97,7 @@
 .status-closed {
   @apply bg-gray-100 text-gray-600;
 }
+
 /* Kanban Board Styles */
 .kanban-column {
   @apply bg-gray-100 dark:bg-gray-700 rounded-lg p-4 min-h-96;
@@ -143,7 +141,6 @@
 .view-toggle-button.active {
   @apply bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm;
 }
-
 .view-toggle-button.inactive {
   @apply text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300;
 }

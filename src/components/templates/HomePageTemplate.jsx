@@ -12,7 +12,6 @@ export const HomePageTemplate = ({
   filters,
   darkMode,
   showCreateModal,
-showCreateModal,
   selectedTicket,
   currentView,
   onFilterChange,
