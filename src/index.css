@@ -100,47 +100,79 @@
 
 /* Kanban Board Styles */
 .kanban-column {
-  @apply bg-gray-100 dark:bg-gray-700 rounded-lg p-4 min-h-96;
-  min-width: 280px;
+  @apply bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 min-h-96 shadow-soft border border-gray-200 dark:border-gray-600;
+  min-width: 320px;
+  max-width: 380px;
 }
 
 .kanban-card {
-  @apply bg-white dark:bg-gray-800 rounded-lg p-4 mb-3 shadow-sm border border-gray-200 dark:border-gray-600 cursor-grab transition-all-smooth;
+  @apply bg-white dark:bg-gray-800 rounded-xl p-5 mb-4 shadow-card border border-gray-100 dark:border-gray-700 cursor-grab transition-all duration-200 ease-in-out hover:shadow-lg hover:border-gray-200 dark:hover:border-gray-600;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
+}
+
+.dark .kanban-card {
+  background: linear-gradient(135deg, rgba(31,41,55,0.9) 0%, rgba(31,41,55,1) 100%);
 }
 
 .kanban-card:hover {
-  @apply shadow-md transform scale-105;
+  @apply shadow-xl transform scale-[1.02] -translate-y-1;
 }
 
 .kanban-card.dragging {
-  @apply opacity-50 transform rotate-2 shadow-lg;
+  @apply opacity-60 transform rotate-3 shadow-2xl scale-105;
   cursor: grabbing;
 }
 
 .drag-overlay {
-  @apply transform rotate-2 shadow-xl opacity-90;
+  @apply transform rotate-3 shadow-2xl opacity-95 scale-105;
 }
 
 .drop-zone-active {
-  @apply bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-300 border-dashed;
+  @apply bg-blue-50/70 dark:bg-blue-900/30 border-2 border-blue-300 border-dashed shadow-inner;
 }
 
 .drop-zone-over {
-  @apply bg-green-50 dark:bg-green-900/20 border-2 border-green-300 border-dashed;
+  @apply bg-green-50/70 dark:bg-green-900/30 border-2 border-green-400 border-dashed shadow-inner;
+  animation: pulse 1.5s infinite;
+}
+
+/* Ticket List Styles */
+.ticket-list-item {
+  @apply transition-all duration-200 ease-in-out hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 dark:hover:from-gray-700 dark:hover:to-gray-600;
+}
+
+.ticket-list-item:hover {
+  @apply shadow-sm transform translate-x-1;
 }
 
 /* View Toggle Styles */
 .view-toggle {
-  @apply inline-flex rounded-lg bg-gray-100 dark:bg-gray-700 p-1;
+  @apply inline-flex rounded-xl bg-gray-100 dark:bg-gray-700 p-1.5 shadow-inner;
 }
 
 .view-toggle-button {
-  @apply px-3 py-2 text-sm font-medium rounded-md transition-all-smooth;
+  @apply px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ease-in-out;
 }
 
 .view-toggle-button.active {
-  @apply bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm;
+  @apply bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-md transform scale-105;
 }
+
 .view-toggle-button.inactive {
-  @apply text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300;
+  @apply text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600;
+}
+
+/* Enhanced Badge Styles */
+.enhanced-badge {
+  @apply px-3 py-1.5 rounded-full text-xs font-semibold border shadow-sm transition-all duration-200;
+}
+
+/* Loading Animation */
+@keyframes ticketLoadPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.ticket-loading {
+  animation: ticketLoadPulse 2s infinite;
 }

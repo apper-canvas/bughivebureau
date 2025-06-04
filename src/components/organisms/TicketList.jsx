@@ -8,27 +8,30 @@ import { Avatar } from '../molecules/Avatar'
 
 export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor, onTicketSelect }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-soft overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-        <Text variant="h2">
+<div className="bg-white dark:bg-gray-800 rounded-2xl shadow-card border border-gray-100 dark:border-gray-700 overflow-hidden">
+      <div className="px-8 py-6 bg-gradient-to-r from-gray-50 to-white dark:from-gray-700 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <Text variant="h2" className="text-gray-900 dark:text-white font-bold">
           Tickets ({tickets.length})
         </Text>
       </div>
       
       {loading ? (
-        <div className="p-8 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700">
+        <div className="p-12 text-center">
+          <div className="inline-flex items-center px-6 py-4 rounded-xl bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-600 shadow-inner ticket-loading">
             <Spinner />
-            <Text variant="p" className="text-gray-600 dark:text-gray-400">Loading tickets...</Text>
+            <Text variant="p" className="text-gray-600 dark:text-gray-400 ml-3 font-medium">Loading tickets...</Text>
           </div>
         </div>
       ) : tickets.length === 0 ? (
-        <div className="p-8 text-center">
-          <ApperIcon name="Search" className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <Text variant="p">No tickets found matching your criteria.</Text>
+        <div className="p-16 text-center">
+          <div className="bg-gray-50 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+            <ApperIcon name="Search" className="w-10 h-10 text-gray-400" />
+          </div>
+          <Text variant="h3" className="text-gray-700 dark:text-gray-300 mb-2">No tickets found</Text>
+          <Text variant="p" className="text-gray-500 dark:text-gray-400">Try adjusting your filters or create a new ticket</Text>
         </div>
       ) : (
-        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="divide-y divide-gray-100 dark:divide-gray-700">
           <AnimatePresence>
             {tickets.map((ticket) => (
               <motion.div
@@ -36,33 +39,40 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="p-6 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-all-smooth"
+                transition={{ duration: 0.2 }}
+                className="ticket-list-item p-8 cursor-pointer group"
                 onClick={() => onTicketSelect(ticket)}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <Text variant="mono">#{ticket.id}</Text>
-                      <Badge colorClass={getPriorityColor(ticket.priority)}>
-                        {ticket.priority}
+                <div className="flex items-start justify-between">
+                  <div className="flex-1 min-w-0 space-y-4">
+                    <div className="flex items-center space-x-4">
+                      <Text variant="mono" className="text-sm font-bold bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-lg">
+                        #{ticket.id}
+                      </Text>
+                      <Badge colorClass={`enhanced-badge ${getPriorityColor(ticket.priority)}`}>
+                        {ticket.priority.toUpperCase()}
                       </Badge>
-                      <Badge colorClass={getStatusColor(ticket.status)}>
-                        {ticket.status?.replace('-', ' ')}
+                      <Badge colorClass={`enhanced-badge ${getStatusColor(ticket.status)}`}>
+                        {ticket.status?.replace('-', ' ').toUpperCase()}
                       </Badge>
                     </div>
-                    <Text variant="h3">
-                      {ticket.title}
-                    </Text>
-                    <Text variant="p" className="truncate mt-1">
-                      {ticket.description}
-                    </Text>
+                    <div className="space-y-2">
+                      <Text variant="h3" className="text-gray-900 dark:text-white font-semibold group-hover:text-primary transition-colors">
+                        {ticket.title}
+                      </Text>
+                      <Text variant="p" className="text-gray-600 dark:text-gray-400 line-clamp-2 leading-relaxed">
+                        {ticket.description}
+                      </Text>
+                    </div>
                   </div>
                   
-                  <div className="flex items-center space-x-4 ml-4">
+                  <div className="flex items-center space-x-6 ml-8">
                     {ticket.assignee && (
-                      <Avatar name={ticket.assignee.name} showIcon={false} showName={true} className="w-6 h-6" />
+                      <div className="flex items-center space-x-3">
+                        <Avatar name={ticket.assignee.name} showIcon={false} showName={true} className="w-8 h-8" />
+                      </div>
                     )}
-                    <ApperIcon name="ChevronRight" className="w-4 h-4 text-gray-400" />
+                    <ApperIcon name="ChevronRight" className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
                   </div>
                 </div>
               </motion.div>

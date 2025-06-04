@@ -231,21 +231,21 @@ const handleDragEnd = (event) => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-soft overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-        <Text variant="h2">
+<div className="bg-white dark:bg-gray-800 rounded-2xl shadow-card border border-gray-100 dark:border-gray-700 overflow-hidden">
+      <div className="px-8 py-6 bg-gradient-to-r from-gray-50 to-white dark:from-gray-700 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <Text variant="h2" className="text-gray-900 dark:text-white font-bold">
           Kanban Board ({tickets.length} tickets)
         </Text>
       </div>
       
-      <div className="p-6">
+      <div className="p-8">
         <DndContext
           collisionDetection={closestCorners}
           onDragStart={handleDragStart}
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
         >
-<div className="flex gap-6 overflow-x-auto pb-4">
+          <div className="flex gap-8 overflow-x-auto pb-6 scrollbar-hide">
             {statuses.map((status) => (
               <DroppableWrapper
                 key={status.key}
