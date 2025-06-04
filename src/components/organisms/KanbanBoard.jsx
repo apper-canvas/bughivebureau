@@ -213,19 +213,17 @@ export const KanbanBoard = ({
           onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
         >
-          <div className="flex gap-6 overflow-x-auto pb-4">
+<div className="flex gap-6 overflow-x-auto pb-4">
             {statuses.map((status) => (
-              <div key={status.key} id={`column-${status.key}`}>
-                <KanbanColumn
-                  status={status.key}
-                  title={status.title}
-                  tickets={getTicketsByStatus(status.key)}
-                  isOver={overId === `column-${status.key}`}
-                  getPriorityColor={getPriorityColor}
-                  getStatusColor={getStatusColor}
-                  onTicketSelect={onTicketSelect}
-                />
-              </div>
+              <DroppableColumn
+                key={status.key}
+                status={status.key}
+                title={status.title}
+                tickets={getTicketsByStatus(status.key)}
+                getPriorityColor={getPriorityColor}
+                getStatusColor={getStatusColor}
+                onTicketSelect={onTicketSelect}
+              />
             ))}
           </div>
           
