@@ -9,7 +9,7 @@ import { Badge } from '../molecules/Badge'
 import { Avatar } from '../molecules/Avatar'
 import ApperIcon from '../ApperIcon'
 import { useDroppable } from '@dnd-kit/core'
-
+import { toast } from 'react-toastify'
 const DroppableWrapper = ({ children, id, status }) => {
   const { setNodeRef, isOver } = useDroppable({
     id,
@@ -186,11 +186,17 @@ const handleDragEnd = (event) => {
     }
 
     const activeTicket = tickets.find(t => t.id === active.id)
-    const overColumnId = over.id.replace('column-', '')
-    const overColumn = statuses.find(s => s.key === overColumnId)
     
-    if (activeTicket && overColumn && activeTicket.status !== overColumn.key) {
-      onTicketStatusUpdate(activeTicket.id, overColumn.key)
+    // Check if dropped on a column
+    const overId = over.id.toString()
+    if (overId.startsWith('column-')) {
+      const overColumnId = overId.replace('column-', '')
+      const overColumn = statuses.find(s => s.key === overColumnId)
+      
+      if (activeTicket && overColumn && activeTicket.status !== overColumn.key) {
+        onTicketStatusUpdate(activeTicket.id, overColumn.key)
+        toast.success(`Ticket moved to ${overColumn.title}`)
+      }
     }
 
     setActiveId(null)
