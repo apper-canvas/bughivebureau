@@ -85,26 +85,28 @@ const handleDelete = async () => {
                         {currentTicket.title}
                       </Text>
                     </div>
-<div className="flex items-center space-x-2">
+<div className="flex items-center space-x-3">
                       <Button
-                        variant="outline"
+                        variant="primary"
                         size="sm"
                         onClick={() => setIsEditing(true)}
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:shadow-md"
                       >
-                        <ApperIcon name="Edit" className="w-4 h-4 mr-1" />
+                        <ApperIcon name="Edit" className="w-4 h-4 mr-2" />
                         Edit
                       </Button>
                       <Button
-                        variant="outline"
+                        variant="destructive"
                         size="sm"
                         onClick={() => setShowDeleteConfirm(true)}
+                        className="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-lg shadow-sm transition-all duration-200 hover:shadow-md"
                       >
-                        <ApperIcon name="Trash2" className="w-4 h-4 mr-1" />
+                        <ApperIcon name="Trash2" className="w-4 h-4 mr-2" />
                         Delete
                       </Button>
                       <button
                         onClick={onClose}
-                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors ml-2"
                       >
                         <ApperIcon name="X" className="w-5 h-5 text-gray-500" />
                       </button>
