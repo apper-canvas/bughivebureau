@@ -65,12 +65,35 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
                       </Text>
                     </div>
                   </div>
-                  
-                  {ticket.assignee && (
-                    <div className="flex items-center space-x-3 ml-8">
-                      <Avatar name={ticket.assignee.name} showIcon={false} showName={true} className="w-8 h-8" />
-                    </div>
-                  )}
+<div className="flex items-center space-x-3 ml-8 min-w-0">
+                    {ticket.assignee ? (
+                      <div className="flex items-center space-x-2">
+                        <Avatar name={ticket.assignee.name} showIcon={false} showName={false} className="w-8 h-8" />
+                        <div className="flex flex-col min-w-0">
+                          <Text variant="p" className="text-sm font-medium text-gray-700 dark:text-gray-300 truncate">
+                            {ticket.assignee.name}
+                          </Text>
+                          <Text variant="p" className="text-xs text-gray-500 dark:text-gray-400">
+                            Assignee
+                          </Text>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center space-x-2 text-gray-400">
+                        <div className="w-8 h-8 rounded-full border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                          <ApperIcon name="User" className="w-4 h-4" />
+                        </div>
+                        <div className="flex flex-col">
+                          <Text variant="p" className="text-sm text-gray-500 dark:text-gray-400">
+                            Unassigned
+                          </Text>
+                          <Text variant="p" className="text-xs text-gray-400 dark:text-gray-500">
+                            No assignee
+                          </Text>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}

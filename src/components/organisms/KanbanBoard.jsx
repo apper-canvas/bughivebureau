@@ -81,15 +81,30 @@ const KanbanCard = ({ ticket, getPriorityColor, getStatusColor, onTicketSelect }
               {ticket.priority}
             </Badge>
           </div>
-          
-          {ticket.assignee && (
-            <Avatar 
-              name={ticket.assignee.name} 
-              showIcon={false} 
-              showName={false} 
-              className="w-6 h-6" 
-            />
-          )}
+<div className="flex items-center space-x-2">
+            {ticket.assignee ? (
+              <div className="flex items-center space-x-1">
+                <Avatar 
+                  name={ticket.assignee.name} 
+                  showIcon={false} 
+                  showName={false} 
+                  className="w-6 h-6" 
+                />
+                <Text variant="p" className="text-xs text-gray-600 dark:text-gray-400 truncate max-w-20">
+                  {ticket.assignee.name}
+                </Text>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-1 text-gray-400">
+                <div className="w-6 h-6 rounded-full border border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                  <ApperIcon name="User" className="w-3 h-3" />
+                </div>
+                <Text variant="p" className="text-xs text-gray-400">
+                  Unassigned
+                </Text>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>
