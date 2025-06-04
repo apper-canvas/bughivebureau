@@ -34,14 +34,13 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
         <div className="divide-y divide-gray-100 dark:divide-gray-700">
           <AnimatePresence>
             {tickets.map((ticket) => (
-              <motion.div
+<motion.div
                 key={ticket.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2 }}
-                className="ticket-list-item p-8 cursor-pointer group"
-                onClick={() => onTicketSelect(ticket)}
+                className="ticket-list-item p-8 group"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1 min-w-0 space-y-4">
@@ -57,7 +56,7 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
                       </Badge>
                     </div>
                     <div className="space-y-2">
-                      <Text variant="h3" className="text-gray-900 dark:text-white font-semibold group-hover:text-primary transition-colors">
+                      <Text variant="h3" className="text-gray-900 dark:text-white font-semibold">
                         {ticket.title}
                       </Text>
                       <Text variant="p" className="text-gray-600 dark:text-gray-400 line-clamp-2 leading-relaxed">
@@ -72,7 +71,13 @@ export const TicketList = ({ tickets, loading, getPriorityColor, getStatusColor,
                         <Avatar name={ticket.assignee.name} showIcon={false} showName={true} className="w-8 h-8" />
                       </div>
                     )}
-                    <ApperIcon name="ChevronRight" className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
+                    <button 
+                      onClick={() => onTicketSelect(ticket)}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 hover:bg-blue-600 transition-all duration-200 ease-in-out transform hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl group/btn"
+                      aria-label="View ticket details"
+                    >
+                      <ApperIcon name="ChevronRight" className="w-5 h-5 text-white transition-transform group-hover/btn:translate-x-0.5" />
+                    </button>
                   </div>
                 </div>
               </motion.div>
