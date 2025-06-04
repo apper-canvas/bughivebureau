@@ -105,10 +105,10 @@ export const EditTicketForm = ({ ticket, onSuccess, onCancel }) => {
             onClick={onCancel}
             disabled={loading}
           >
-            Cancel
+Cancel
           </Button>
           <Button
-            onClick={handleSubmit}
+            type="submit"
             loading={loading}
             disabled={!formData.title || !formData.description}
           >
