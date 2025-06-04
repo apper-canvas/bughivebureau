@@ -1,7 +1,19 @@
 import React from 'react'
 
 export const Text = ({ children, className, variant = 'p' }) => {
-  const Component = variant
+  const tagMapping = {
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    p: 'p',
+    span: 'span',
+    label: 'label',
+    error: 'div',
+    badge: 'span',
+    mono: 'span'
+  }
+  
+  const Component = tagMapping[variant] || 'p'
   const baseClasses = {
     h1: 'text-xl font-bold text-gray-900 dark:text-white',
     h2: 'text-lg font-semibold text-gray-900 dark:text-white',
