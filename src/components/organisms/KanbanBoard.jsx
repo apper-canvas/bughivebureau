@@ -37,22 +37,34 @@ const KanbanCard = ({ ticket, getPriorityColor, getStatusColor, onTicketSelect }
     transition,
   }
 
+  const handleCardClick = (e) => {
+    // Only open ticket if not clicking on drag handle
+    if (!e.target.closest('.drag-handle')) {
+      e.stopPropagation()
+      onTicketSelect(ticket)
+    }
+  }
+
   return (
     <motion.div
       ref={setNodeRef}
       style={style}
       {...attributes}
-      {...listeners}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className={`kanban-card ${isDragging ? 'dragging' : ''}`}
-      onClick={() => onTicketSelect(ticket)}
+      className={`kanban-card cursor-pointer ${isDragging ? 'dragging' : ''}`}
+      onClick={handleCardClick}
     >
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <Text variant="mono" className="text-xs">#{ticket.id}</Text>
-          <ApperIcon name="GripVertical" className="w-4 h-4 text-gray-400" />
+          <div 
+            className="drag-handle cursor-grab active:cursor-grabbing p-1 -m-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+            {...listeners}
+          >
+            <ApperIcon name="GripVertical" className="w-4 h-4 text-gray-400" />
+          </div>
         </div>
         
         <Text variant="h4" className="line-clamp-2">
