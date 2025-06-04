@@ -115,7 +115,7 @@ return (
       showCreateModal={showCreateModal}
       selectedTicket={selectedTicket}
       currentView={currentView}
-      onFilterChange={handleFilterChange}
+onFilterChange={handleFilterChange}
       onNewTicketClick={() => setShowCreateModal(true)}
       onTicketCreated={(newTicket) => {
         setTickets(prev => [newTicket, ...prev])
@@ -124,6 +124,12 @@ return (
       onCloseCreateModal={() => setShowCreateModal(false)}
       onTicketSelect={setSelectedTicket}
       onCloseTicketDetail={() => setSelectedTicket(null)}
+      onTicketUpdated={(updatedTicket) => {
+        setTickets(prev => prev.map(ticket => 
+          ticket.id === updatedTicket.id ? updatedTicket : ticket
+        ))
+        setSelectedTicket(updatedTicket)
+      }}
       onToggleDarkMode={toggleDarkMode}
       onViewChange={setCurrentView}
       onTicketStatusUpdate={handleTicketStatusUpdate}
