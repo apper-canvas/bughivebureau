@@ -72,11 +72,12 @@ export const HomePageTemplate = ({
         onTicketCreated={onTicketCreated}
       />
 
-      <TicketDetailModal
+<TicketDetailModal
         ticket={selectedTicket}
         onClose={onCloseTicketDetail}
         getPriorityColor={getPriorityColor}
         getStatusColor={getStatusColor}
+        onTicketUpdate={onTicketUpdated}
       />
     </div>
   )

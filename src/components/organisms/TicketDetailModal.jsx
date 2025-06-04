@@ -29,18 +29,18 @@ export const TicketDetailModal = ({ ticket, onClose, getPriorityColor, getStatus
     setShowDeleteConfirm(false)
   }
 
-  const handleDelete = async () => {
+const handleDelete = async () => {
     if (!onTicketDelete) return
     
     setDeleting(true)
     try {
       await onTicketDelete(currentTicket.id)
+      setShowDeleteConfirm(false)
       onClose()
     } catch (error) {
       console.error('Failed to delete ticket:', error)
     } finally {
       setDeleting(false)
-      setShowDeleteConfirm(false)
     }
   }
 

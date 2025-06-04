@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
+import { toast } from 'react-hot-toast'
 import { ticketService } from '../services'
 import { HomePageTemplate } from '../components/templates/HomePageTemplate'
 import { ErrorDisplay } from '../components/organisms/ErrorDisplay'
-
 export default function HomePage() {
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(false)
@@ -135,6 +135,17 @@ onTicketUpdated={(updatedTicket, action, ticketId) => {
             ticket.id === updatedTicket.id ? updatedTicket : ticket
           ))
           setSelectedTicket(updatedTicket)
+        }
+      }}
+      onTicketDelete={async (ticketId) => {
+        try {
+          await ticketService.delete(ticketId)
+          setTickets(prev => prev.filter(ticket => ticket.id !== ticketId))
+          setSelectedTicket(null)
+          toast.success('Ticket deleted successfully')
+        } catch (error) {
+          toast.error('Failed to delete ticket: ' + error.message)
+          throw error
         }
       }}
       onToggleDarkMode={toggleDarkMode}
