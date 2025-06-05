@@ -1,6 +1,9 @@
+// Import ApperSDK for database operations
+import { ApperSDK } from '../../../node_modules/@apper/client/dist/index.js';
+
 // Initialize ApperSDK client for database operations
 const getApperClient = () => {
-  const { ApperClient } = window.ApperSDK;
+  const { ApperClient } = window.ApperSDK || ApperSDK;
   return new ApperClient({
     apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
     apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
