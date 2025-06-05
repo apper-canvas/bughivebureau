@@ -152,14 +152,14 @@ export const CreateTicketForm = ({ isOpen, onClose, onTicketCreated }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
           onClick={handleClose}
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full h-[90vh] max-h-[600px] min-h-[500px] shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -184,9 +184,8 @@ export const CreateTicketForm = ({ isOpen, onClose, onTicketCreated }) => {
               
               <ProgressBar progress={progress} />
             </div>
-
-            <form onSubmit={handleSubmit} className="flex flex-col h-full">
-              <div className="flex-1 overflow-y-auto p-6">
+<form onSubmit={handleSubmit} className="flex flex-col flex-1 min-h-0">
+              <div className="flex-1 overflow-y-auto p-6 min-h-0">
                 <AnimatePresence mode="wait">
                   {currentStep === 1 && (
                     <motion.div
@@ -312,9 +311,9 @@ export const CreateTicketForm = ({ isOpen, onClose, onTicketCreated }) => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
-{/* Footer */}
-              <div className="flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-750">
+</div>
+              {/* Footer */}
+              <div className="flex-shrink-0 px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-750 mt-auto">
                 <div className="flex justify-between">
                   <div>
                     {currentStep > 1 && (
