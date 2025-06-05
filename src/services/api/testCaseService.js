@@ -1,105 +1,116 @@
-import testCasesData from '../mockData/testCases.json';
-
-// Utility function to create delay
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// In-memory storage (simulating database)
-let testCases = [...testCasesData];
+// Initialize ApperSDK client for database operations
+const getApperClient = () => {
+  const { ApperClient } = window.ApperSDK;
+  return new ApperClient({
+    apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+    apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+  });
+};
 
 const testCaseService = {
-  // Get all test cases
+  // Get all test cases from database
   async getAll() {
-    await delay(300);
-    return [...testCases];
+    try {
+      const client = getApperClient();
+      const response = await client.getRecords('test_cases');
+      return response.data || [];
+    } catch (error) {
+      console.error('Failed to fetch test cases:', error);
+      throw new Error('Failed to load test cases from database');
+    }
   },
 
-  // Get test case by ID
+  // Get test case by ID from database
   async getById(id) {
-    await delay(250);
-    const testCase = testCases.find(tc => tc.id === id);
-    if (!testCase) {
+    try {
+      const client = getApperClient();
+      const response = await client.getRecord('test_cases', id);
+      if (!response.data) {
+        throw new Error('Test case not found');
+      }
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch test case:', error);
       throw new Error('Test case not found');
     }
-    return { ...testCase };
   },
 
-  // Create new test case
+  // Create new test case in database
   async create(testCaseData) {
-    await delay(400);
-    const newTestCase = {
-      ...testCaseData,
-      id: Date.now(),
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      executionHistory: []
-    };
-    testCases = [...testCases, newTestCase];
-    return { ...newTestCase };
+    try {
+      const client = getApperClient();
+      const newTestCase = {
+        ...testCaseData,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        executionHistory: []
+      };
+      const response = await client.createRecord('test_cases', newTestCase);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to create test case:', error);
+      throw new Error('Failed to create test case in database');
+    }
   },
 
-  // Update existing test case
+  // Update existing test case in database
   async update(id, testCaseData) {
-    await delay(350);
-    const index = testCases.findIndex(tc => tc.id === id);
-    if (index === -1) {
-      throw new Error('Test case not found');
+    try {
+      const client = getApperClient();
+      const updatedData = {
+        ...testCaseData,
+        updatedAt: new Date().toISOString()
+      };
+      const response = await client.updateRecord('test_cases', id, updatedData);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to update test case:', error);
+      throw new Error('Failed to update test case in database');
     }
-    const updatedTestCase = {
-      ...testCases[index],
-      ...testCaseData,
-      id,
-      updatedAt: new Date().toISOString()
-    };
-    testCases = [
-      ...testCases.slice(0, index),
-      updatedTestCase,
-      ...testCases.slice(index + 1)
-    ];
-    return { ...updatedTestCase };
   },
 
-  // Delete test case
+  // Delete test case from database
   async delete(id) {
-    await delay(300);
-    const index = testCases.findIndex(tc => tc.id === id);
-    if (index === -1) {
-      throw new Error('Test case not found');
+    try {
+      const client = getApperClient();
+      await client.deleteRecord('test_cases', id);
+      return { success: true };
+    } catch (error) {
+      console.error('Failed to delete test case:', error);
+      throw new Error('Failed to delete test case from database');
     }
-    testCases = testCases.filter(tc => tc.id !== id);
-    return { success: true };
   },
 
-  // Execute test case
+  // Execute test case and update database
   async execute(id, result, notes = '') {
-    await delay(400);
-    const index = testCases.findIndex(tc => tc.id === id);
-    if (index === -1) {
-      throw new Error('Test case not found');
+    try {
+      const client = getApperClient();
+      
+      // First get the current test case
+      const currentTestCase = await this.getById(id);
+      
+      const execution = {
+        id: Date.now(),
+        result,
+        notes,
+        executedAt: new Date().toISOString(),
+        executedBy: 'Current User'
+      };
+
+      const updatedTestCase = {
+        ...currentTestCase,
+        status: result,
+        lastExecuted: new Date().toISOString(),
+        executionHistory: [...(currentTestCase.executionHistory || []), execution],
+        updatedAt: new Date().toISOString()
+      };
+
+      const response = await client.updateRecord('test_cases', id, updatedTestCase);
+      return response.data;
+    } catch (error) {
+      console.error('Failed to execute test case:', error);
+      throw new Error('Failed to execute test case in database');
     }
-    
-    const execution = {
-      id: Date.now(),
-      result,
-      notes,
-      executedAt: new Date().toISOString(),
-      executedBy: 'Current User'
-    };
-
-    const updatedTestCase = {
-      ...testCases[index],
-      status: result,
-      lastExecuted: new Date().toISOString(),
-      executionHistory: [...(testCases[index].executionHistory || []), execution],
-      updatedAt: new Date().toISOString()
-    };
-
-    testCases = [
-      ...testCases.slice(0, index),
-      updatedTestCase,
-      ...testCases.slice(index + 1)
-    ];
-
-    return { ...updatedTestCase };
   }
 };
 
