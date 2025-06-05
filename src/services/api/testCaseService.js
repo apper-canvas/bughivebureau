@@ -1,5 +1,5 @@
 // Import ApperSDK for database operations
-import { ApperSDK } from '../../../node_modules/@apper/client/dist/index.js';
+import { ApperSDK } from '@apper/client';
 
 // Initialize ApperSDK client for database operations
 const getApperClient = () => {
