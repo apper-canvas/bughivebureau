@@ -13,11 +13,20 @@ export const AppHeader = ({ appName, searchFilter, onSearchChange, darkMode, onT
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                <ApperIcon name="Bug" className="w-5 h-5 text-white" />
-              </div>
-              <Text variant="h1">{appName}</Text>
+<ApperIcon name="Bug" className="w-5 h-5 text-white" />
             </div>
+            <Text variant="h1">{appName}</Text>
           </div>
+          
+          <nav className="hidden md:flex items-center space-x-6">
+            <a href="/" className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors">
+              Dashboard
+            </a>
+            <a href="/test-cases" className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors">
+              Test Cases
+            </a>
+          </nav>
+        </div>
           
           <div className="flex items-center space-x-4">
             <SearchInput

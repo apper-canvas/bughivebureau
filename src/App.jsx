@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { setUser, clearUser } from './store/userSlice';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -10,6 +10,7 @@ import Callback from './pages/Callback';
 import ErrorPage from './pages/ErrorPage';
 import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
+import TestCasesPage from './pages/TestCasesPage';
 
 // Create auth context
 export const AuthContext = createContext(null);
@@ -40,10 +41,12 @@ function App() {
         setIsInitialized(true);
 // CRITICAL: This exact currentPath logic must be preserved in all implementations
         // DO NOT simplify or modify this pattern as it ensures proper redirection flow
-        let currentPath = window.location.pathname + window.location.search;
+let currentPath = window.location.pathname + window.location.search;
         let redirectPath = null;
         try {
-          redirectPath = new URLSearchParams(window.location.search).get('redirect');
+          if (typeof URLSearchParams !== 'undefined') {
+            redirectPath = new URLSearchParams(window.location.search).get('redirect');
+          }
         } catch (error) {
           console.warn('URLSearchParams not available, redirect parameter will be ignored');
         }
@@ -125,9 +128,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/callback" element={<Callback />} />
+<Route path="/callback" element={<Callback />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/test-cases" element={<TestCasesPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         

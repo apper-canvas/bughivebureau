@@ -1,0 +1,472 @@
+[
+  {
+    "id": 1,
+    "title": "User Login with Valid Credentials",
+    "description": "Verify that users can successfully log in with valid username and password",
+    "category": "Authentication",
+    "priority": "Critical",
+    "status": "Pass",
+    "testType": "Functional",
+    "preconditions": "User account exists in the system",
+    "testSteps": [
+      "Navigate to login page",
+      "Enter valid username",
+      "Enter valid password",
+      "Click login button"
+    ],
+    "expectedResult": "User is redirected to dashboard with welcome message",
+    "actualResult": "User successfully logged in and redirected to dashboard",
+    "assignedTo": "John Doe",
+    "estimatedTime": 5,
+    "tags": ["login", "authentication", "security"],
+    "createdAt": "2024-01-15T09:00:00Z",
+    "updatedAt": "2024-01-20T14:30:00Z",
+    "lastExecuted": "2024-01-20T14:30:00Z",
+    "executionHistory": [
+      {
+        "id": 1001,
+        "result": "Pass",
+        "notes": "Login successful on first attempt",
+        "executedAt": "2024-01-20T14:30:00Z",
+        "executedBy": "John Doe"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Create New Ticket with All Required Fields",
+    "description": "Test the creation of a new support ticket with all mandatory fields filled",
+    "category": "Ticket Management",
+    "priority": "High",
+    "status": "Pass",
+    "testType": "Functional",
+    "preconditions": "User is logged in and has ticket creation permissions",
+    "testSteps": [
+      "Click 'Create Ticket' button",
+      "Fill in ticket title",
+      "Select priority level",
+      "Enter ticket description",
+      "Assign to team member",
+      "Submit form"
+    ],
+    "expectedResult": "New ticket is created and appears in ticket list with correct details",
+    "actualResult": "Ticket created successfully with all fields populated correctly",
+    "assignedTo": "Jane Smith",
+    "estimatedTime": 8,
+    "tags": ["ticket", "creation", "form"],
+    "createdAt": "2024-01-16T10:15:00Z",
+    "updatedAt": "2024-01-21T11:45:00Z",
+    "lastExecuted": "2024-01-21T11:45:00Z",
+    "executionHistory": [
+      {
+        "id": 1002,
+        "result": "Pass",
+        "notes": "All fields saved correctly, ticket ID generated",
+        "executedAt": "2024-01-21T11:45:00Z",
+        "executedBy": "Jane Smith"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Responsive Design on Mobile Devices",
+    "description": "Verify that the application displays correctly on mobile devices",
+    "category": "UI/UX",
+    "priority": "Medium",
+    "status": "Fail",
+    "testType": "UI Testing",
+    "preconditions": "Access to mobile device or mobile emulator",
+    "testSteps": [
+      "Open application on mobile device",
+      "Navigate through main pages",
+      "Test navigation menu",
+      "Verify form usability",
+      "Check button sizes and spacing"
+    ],
+    "expectedResult": "All elements should be properly sized and accessible on mobile",
+    "actualResult": "Navigation menu overlaps content on screen sizes below 375px",
+    "assignedTo": "Mike Johnson",
+    "estimatedTime": 15,
+    "tags": ["mobile", "responsive", "ui"],
+    "createdAt": "2024-01-17T13:20:00Z",
+    "updatedAt": "2024-01-22T16:20:00Z",
+    "lastExecuted": "2024-01-22T16:20:00Z",
+    "executionHistory": [
+      {
+        "id": 1003,
+        "result": "Fail",
+        "notes": "Menu overlap issue found on iPhone SE screen size",
+        "executedAt": "2024-01-22T16:20:00Z",
+        "executedBy": "Mike Johnson"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "API Response Time Performance",
+    "description": "Test API endpoints response times under normal load conditions",
+    "category": "Performance",
+    "priority": "High",
+    "status": "Pass",
+    "testType": "Performance Testing",
+    "preconditions": "API endpoints are available and accessible",
+    "testSteps": [
+      "Set up performance monitoring tools",
+      "Send requests to /api/tickets endpoint",
+      "Send requests to /api/users endpoint",
+      "Measure response times",
+      "Analyze results against SLA requirements"
+    ],
+    "expectedResult": "All API endpoints should respond within 500ms",
+    "actualResult": "Average response time: 287ms, all within acceptable limits",
+    "assignedTo": "Sarah Wilson",
+    "estimatedTime": 20,
+    "tags": ["api", "performance", "response-time"],
+    "createdAt": "2024-01-18T08:30:00Z",
+    "updatedAt": "2024-01-23T09:15:00Z",
+    "lastExecuted": "2024-01-23T09:15:00Z",
+    "executionHistory": [
+      {
+        "id": 1004,
+        "result": "Pass",
+        "notes": "All endpoints performing well within SLA",
+        "executedAt": "2024-01-23T09:15:00Z",
+        "executedBy": "Sarah Wilson"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Data Validation on Ticket Form",
+    "description": "Verify that form validation works correctly for ticket creation",
+    "category": "Validation",
+    "priority": "High",
+    "status": "Pending",
+    "testType": "Functional",
+    "preconditions": "User has access to ticket creation form",
+    "testSteps": [
+      "Attempt to submit form with empty title",
+      "Enter invalid email format",
+      "Submit form with description exceeding character limit",
+      "Test special characters in input fields",
+      "Verify error messages display correctly"
+    ],
+    "expectedResult": "Appropriate validation errors should display for invalid inputs",
+    "actualResult": "",
+    "assignedTo": "Tom Brown",
+    "estimatedTime": 12,
+    "tags": ["validation", "form", "error-handling"],
+    "createdAt": "2024-01-19T11:45:00Z",
+    "updatedAt": "2024-01-19T11:45:00Z",
+    "lastExecuted": null,
+    "executionHistory": []
+  },
+  {
+    "id": 6,
+    "title": "File Upload Functionality",
+    "description": "Test file upload feature for ticket attachments",
+    "category": "File Management",
+    "priority": "Medium",
+    "status": "Blocked",
+    "testType": "Functional",
+    "preconditions": "File upload feature is implemented and accessible",
+    "testSteps": [
+      "Click file upload button",
+      "Select various file types (PDF, JPG, PNG, DOC)",
+      "Upload files of different sizes",
+      "Verify file preview functionality",
+      "Test upload progress indicator"
+    ],
+    "expectedResult": "Files should upload successfully with proper validation",
+    "actualResult": "Upload feature currently disabled due to server configuration",
+    "assignedTo": "Lisa Garcia",
+    "estimatedTime": 10,
+    "tags": ["upload", "files", "attachments"],
+    "createdAt": "2024-01-20T14:20:00Z",
+    "updatedAt": "2024-01-24T10:30:00Z",
+    "lastExecuted": null,
+    "executionHistory": []
+  },
+  {
+    "id": 7,
+    "title": "Search Functionality Accuracy",
+    "description": "Verify that search returns accurate and relevant results",
+    "category": "Search",
+    "priority": "Medium",
+    "status": "Pass",
+    "testType": "Functional",
+    "preconditions": "Database contains sample tickets for searching",
+    "testSteps": [
+      "Enter exact ticket ID in search",
+      "Search using partial ticket title",
+      "Test search with special characters",
+      "Verify search filters work correctly",
+      "Test empty search results handling"
+    ],
+    "expectedResult": "Search should return relevant results quickly and accurately",
+    "actualResult": "Search functionality working as expected with fast response times",
+    "assignedTo": "David Lee",
+    "estimatedTime": 8,
+    "tags": ["search", "filtering", "results"],
+    "createdAt": "2024-01-21T09:10:00Z",
+    "updatedAt": "2024-01-25T13:45:00Z",
+    "lastExecuted": "2024-01-25T13:45:00Z",
+    "executionHistory": [
+      {
+        "id": 1005,
+        "result": "Pass",
+        "notes": "Search returns accurate results within 200ms",
+        "executedAt": "2024-01-25T13:45:00Z",
+        "executedBy": "David Lee"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "User Permission Levels",
+    "description": "Test different user permission levels and access restrictions",
+    "category": "Security",
+    "priority": "Critical",
+    "status": "Pass",
+    "testType": "Security Testing",
+    "preconditions": "Multiple user accounts with different permission levels exist",
+    "testSteps": [
+      "Login as admin user",
+      "Verify admin can access all features",
+      "Login as regular user",
+      "Verify user cannot access admin functions",
+      "Test unauthorized access attempts"
+    ],
+    "expectedResult": "Users should only access features appropriate to their permission level",
+    "actualResult": "Permission system working correctly, unauthorized access properly blocked",
+    "assignedTo": "Emma Davis",
+    "estimatedTime": 18,
+    "tags": ["security", "permissions", "access-control"],
+    "createdAt": "2024-01-22T15:30:00Z",
+    "updatedAt": "2024-01-26T12:20:00Z",
+    "lastExecuted": "2024-01-26T12:20:00Z",
+    "executionHistory": [
+      {
+        "id": 1006,
+        "result": "Pass",
+        "notes": "All permission levels functioning correctly",
+        "executedAt": "2024-01-26T12:20:00Z",
+        "executedBy": "Emma Davis"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Dark Mode Toggle Functionality",
+    "description": "Test the dark mode toggle feature across all pages",
+    "category": "UI/UX",
+    "priority": "Low",
+    "status": "Pass",
+    "testType": "UI Testing",
+    "preconditions": "Dark mode feature is implemented",
+    "testSteps": [
+      "Toggle dark mode on",
+      "Navigate through all main pages",
+      "Verify color scheme consistency",
+      "Test toggle off functionality",
+      "Check if preference is saved"
+    ],
+    "expectedResult": "Dark mode should apply consistently across all pages and save preference",
+    "actualResult": "Dark mode working perfectly with consistent styling and preference saving",
+    "assignedTo": "Chris Taylor",
+    "estimatedTime": 6,
+    "tags": ["dark-mode", "ui", "preferences"],
+    "createdAt": "2024-01-23T12:15:00Z",
+    "updatedAt": "2024-01-27T14:10:00Z",
+    "lastExecuted": "2024-01-27T14:10:00Z",
+    "executionHistory": [
+      {
+        "id": 1007,
+        "result": "Pass",
+        "notes": "Dark mode toggle works smoothly on all pages",
+        "executedAt": "2024-01-27T14:10:00Z",
+        "executedBy": "Chris Taylor"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Ticket Status Workflow",
+    "description": "Verify ticket status transitions follow business rules",
+    "category": "Workflow",
+    "priority": "High",
+    "status": "Pending",
+    "testType": "Functional",
+    "preconditions": "Test tickets exist in various statuses",
+    "testSteps": [
+      "Create new ticket (should be 'New' status)",
+      "Assign ticket to user (should become 'In Progress')",
+      "Move ticket to testing",
+      "Resolve ticket",
+      "Verify status transition restrictions"
+    ],
+    "expectedResult": "Ticket statuses should follow defined workflow rules",
+    "actualResult": "",
+    "assignedTo": "Alex Wilson",
+    "estimatedTime": 14,
+    "tags": ["workflow", "status", "transitions"],
+    "createdAt": "2024-01-24T10:45:00Z",
+    "updatedAt": "2024-01-24T10:45:00Z",
+    "lastExecuted": null,
+    "executionHistory": []
+  },
+  {
+    "id": 11,
+    "title": "Email Notification System",
+    "description": "Test email notifications for various ticket events",
+    "category": "Notifications",
+    "priority": "Medium",
+    "status": "Fail",
+    "testType": "Integration Testing",
+    "preconditions": "Email service is configured and test email accounts are available",
+    "testSteps": [
+      "Create new ticket",
+      "Assign ticket to user",
+      "Add comment to ticket",
+      "Change ticket status",
+      "Verify emails are sent to appropriate recipients"
+    ],
+    "expectedResult": "Email notifications should be sent for all configured events",
+    "actualResult": "Assignment emails not being sent, other notifications working",
+    "assignedTo": "Rachel Green",
+    "estimatedTime": 16,
+    "tags": ["email", "notifications", "integration"],
+    "createdAt": "2024-01-25T08:20:00Z",
+    "updatedAt": "2024-01-28T11:30:00Z",
+    "lastExecuted": "2024-01-28T11:30:00Z",
+    "executionHistory": [
+      {
+        "id": 1008,
+        "result": "Fail",
+        "notes": "Assignment notification emails not working",
+        "executedAt": "2024-01-28T11:30:00Z",
+        "executedBy": "Rachel Green"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Database Backup Recovery",
+    "description": "Test database backup and recovery procedures",
+    "category": "Data Management",
+    "priority": "Critical",
+    "status": "Pass",
+    "testType": "System Testing",
+    "preconditions": "Backup system is in place and test environment is available",
+    "testSteps": [
+      "Create database backup",
+      "Simulate data loss scenario",
+      "Restore from backup",
+      "Verify data integrity",
+      "Test application functionality post-restore"
+    ],
+    "expectedResult": "Data should be fully restored with no corruption or loss",
+    "actualResult": "Backup and restore completed successfully with full data integrity",
+    "assignedTo": "Kevin Martinez",
+    "estimatedTime": 30,
+    "tags": ["backup", "recovery", "database"],
+    "createdAt": "2024-01-26T13:40:00Z",
+    "updatedAt": "2024-01-29T15:50:00Z",
+    "lastExecuted": "2024-01-29T15:50:00Z",
+    "executionHistory": [
+      {
+        "id": 1009,
+        "result": "Pass",
+        "notes": "Backup and restore procedures working perfectly",
+        "executedAt": "2024-01-29T15:50:00Z",
+        "executedBy": "Kevin Martinez"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Cross-Browser Compatibility",
+    "description": "Verify application works correctly across different browsers",
+    "category": "Compatibility",
+    "priority": "Medium",
+    "status": "Pass",
+    "testType": "Compatibility Testing",
+    "preconditions": "Access to multiple browsers (Chrome, Firefox, Safari, Edge)",
+    "testSteps": [
+      "Test core functionality in Chrome",
+      "Test core functionality in Firefox",
+      "Test core functionality in Safari",
+      "Test core functionality in Edge",
+      "Compare behavior and identify discrepancies"
+    ],
+    "expectedResult": "Application should work consistently across all major browsers",
+    "actualResult": "Application works well across all tested browsers with minor Safari styling differences",
+    "assignedTo": "Sophia Rodriguez",
+    "estimatedTime": 22,
+    "tags": ["browser", "compatibility", "cross-platform"],
+    "createdAt": "2024-01-27T16:25:00Z",
+    "updatedAt": "2024-01-30T10:15:00Z",
+    "lastExecuted": "2024-01-30T10:15:00Z",
+    "executionHistory": [
+      {
+        "id": 1010,
+        "result": "Pass",
+        "notes": "Good compatibility, minor Safari CSS adjustments needed",
+        "executedAt": "2024-01-30T10:15:00Z",
+        "executedBy": "Sophia Rodriguez"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Load Testing with High User Volume",
+    "description": "Test application performance under high concurrent user load",
+    "category": "Performance",
+    "priority": "High",
+    "status": "Pending",
+    "testType": "Load Testing",
+    "preconditions": "Load testing tools are available and test environment can handle high load",
+    "testSteps": [
+      "Configure load testing tool for 100 concurrent users",
+      "Run test for 30 minutes",
+      "Monitor response times and error rates",
+      "Increase load to 500 concurrent users",
+      "Analyze performance metrics and identify bottlenecks"
+    ],
+    "expectedResult": "Application should handle high load without significant performance degradation",
+    "actualResult": "",
+    "assignedTo": "Ryan Thompson",
+    "estimatedTime": 45,
+    "tags": ["load-testing", "performance", "scalability"],
+    "createdAt": "2024-01-28T09:50:00Z",
+    "updatedAt": "2024-01-28T09:50:00Z",
+    "lastExecuted": null,
+    "executionHistory": []
+  },
+  {
+    "id": 15,
+    "title": "Security Vulnerability Scan",
+    "description": "Perform comprehensive security vulnerability assessment",
+    "category": "Security",
+    "priority": "Critical",
+    "status": "Blocked",
+    "testType": "Security Testing",
+    "preconditions": "Security scanning tools are available and authorized for use",
+    "testSteps": [
+      "Run automated vulnerability scanner",
+      "Test for SQL injection vulnerabilities",
+      "Check for XSS vulnerabilities",
+      "Test authentication bypass attempts",
+      "Verify HTTPS implementation and certificate validity"
+    ],
+    "expectedResult": "No critical security vulnerabilities should be found",
+    "actualResult": "Waiting for security team approval to run penetration tests",
+    "assignedTo": "Security Team",
+    "estimatedTime": 60,
+    "tags": ["security", "vulnerability", "penetration-testing"],
+    "createdAt": "2024-01-29T11:30:00Z",
+    "updatedAt": "2024-01-30T14:20:00Z",
+    "lastExecuted": null,
+    "executionHistory": []
+  }
+]
